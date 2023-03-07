@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+
+import styles from './App.css';
+import rates from './rates.js'
+import Rate from './components/Rate'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${styles.App}`}>
+      {/* <div className={`${styles.App}`}> */}
+      {
+        rates.map((rate) =>
+          <Rate speed={rate.speed} price={rate.price} color={rate.color} dark={rate.darkerColor}></Rate>)
+      }
     </div>
+    // </div>
   );
 }
 
